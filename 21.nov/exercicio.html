@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    /* Crie o seu ESTILO aqui */
+    * {
+        margin: 0;
+    }
+
+    h4 {
+        margin: 0; 
+        font-size: 30px;
+        font-family: sans-serif;
+        background-color: #333;
+        color: #00b4bd;
+    }
+    
+    label {
+       color: #00b4bd; 
+       font-family: sans-serif;
+       padding: 10px;
+    }
+
+    form {
+        padding: 10px;
+        background-color: #333;
+    }
+
+</style>
+
+
+
+<body>
+
+    <h4>Calculadora</h4>
+    <form>
+        <label>
+            Informe seu peso (kg)
+            <input type="number" required id="peso" />
+        </label>
+
+        <label>
+            Informe sua altura (metro e cm, separados por vírgula)
+            <input required type="number" id="altura" />
+        </label>
+
+        <input type="submit" value="Calcular" onclick="handleClick()" />
+    </form>
+
+
+
+
+    <script>
+
+        const handleClick = () => {
+            // Escreve sua função aqui!
+            // Faça uma calculadora IMC
+            // Exibir no alerta o resultado correto 
+            // Resultado: 23,5 Peso ideal
+
+
+
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+
+            const resultado = peso / (altura * altura);
+            let classificacao = '';
+
+            if (resultado < 18.4) {
+                classificacao = 'Abaixo do peso';
+            } else if (resultado >= 18.4 && resultado < 24.9) {
+                classificacao = 'Peso normal';
+            } else if (resultado >= 24.9) {
+                classificacao = 'Acima do peso';
+            } else {
+                classificacao = 'Tipo inválido'
+            };
+
+
+            if (peso && altura) {
+                alert(`Resultado: ${resultado.toFixed(2)}, ${classificacao}`);
+            };
+
+        };        
+    </script>
+</body</html>

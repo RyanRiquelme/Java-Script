@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h2>Produtos</h2>
+
+
+    <div id="Produtos">
+
+    </div>
+
+
+
+    <script>
+        const produtos = JSON.parse(localStorage.getItem('Tenis'))
+        const divProdutos = document.getElementById('Produtos')
+
+        divProdutos.innerHTML = `<p>${produtos.tenis}</p><p>${produtos.tamanho}</p>`
+    </script>
+    
+</body>
+</html>

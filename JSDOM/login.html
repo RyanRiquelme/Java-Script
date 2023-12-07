@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Login</title>
+</head>
+
+
+<style>
+    * {
+        margin: 0;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 100px;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(191, 3, 248, 0.842);
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        border: 2px solid black;
+        border-width: 5px;
+        border-radius: 12px;
+        padding: 5px;
+        font-family: sans-serif;
+    }
+
+    .formulario label {
+        margin: 0.2rem;
+    }
+
+    .btn-login {
+        border: none;
+        background-color: #333;
+        color: white;
+        padding: 3px;
+        border-radius: 10px;
+        width: 100px;
+        background-color: black;
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+
+    <a href="cadastro.html">Cadastro</a>
+    
+    <div class="container">
+        <form class="formulario" onsubmit="handleClick(event)">
+
+            <label>
+                Email:
+
+                <input id="email" type="email" required />
+            </label>
+
+            <label>
+                Password:
+
+                <input id="password" type="password" required />
+            </label>
+
+            <input class="btn-login" id="login" type="submit" value="Login" />
+        </form>
+    </div>
+
+
+
+
+
+
+    <script>
+        function handleClick(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const accounts = JSON.parse(localStorage.getItem('accounts'));
+
+            for (const account of accounts) {
+                if (account.email === email && account.password === password) {
+                    window.location.href = 'home.html'
+                } else {
+                    alert('Conta inválida')
+                }
+            }
+        
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

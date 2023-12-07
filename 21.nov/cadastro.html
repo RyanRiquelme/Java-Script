@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* Faça seu estilo */
+    * {
+        margin: 0;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 100px;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(237, 241, 245, 0.267);
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+
+    }
+
+    .formulario label {
+        margin: 0.2rem;
+    }
+
+    .btn-login {
+        border: none;
+        background-color: #333;
+        color: white;
+        padding: 3px;
+        border-radius: 10px;
+        width: 100px;
+    }
+
+    .btn-login:hover {
+        background-color: black;
+        cursor: pointer;
+    }
+
+
+</style>
+
+
+
+<body>
+
+
+
+    <form onsubmit="">
+        <!-- Faça a tela de cadastro -->
+        <div class="container">
+            <form class="formulario" onsubmit="handleClick()">
+    
+                <label>
+                    Email:
+    
+                    <input id="email" type="email" required />
+                </label>
+    
+                <label>
+                    Password:
+    
+                    <input id="password" type="password" required />
+                </label>
+
+                <label>
+                   Confirm Password:
+    
+                    <input id="password" type="password" required />
+                </label>
+    
+                <input class="btn-login" id="Cadastro" type="submit" value="Cadastro" />
+            </form>
+        </div>
+
+
+    </form>
+
+
+</body>
+
+
+
+<script>
+    // Faça seu script
+    function handleClick() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const Confirmpassword = document.getElementById('confirm password').value;
+            
+            if (email === 'admin@email.com' && password === '123' && confirmpassword === '123') {
+                alert('Cadastro feito com sucesso');
+                window.location.href = 'login.html';
+            } else {
+                return alert('Campos inválidos');
+            }
+        
+        }
+
+    
+</script>
+
+
+</html>

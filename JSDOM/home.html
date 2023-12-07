@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        margin: 0;
+    }
+
+    .div-form {
+        display: flex;
+        flex-direction: column;
+        background-color: #ccc;
+        padding: 10px;
+        max-width: 600px;
+        align-items: center;
+        text-align: start;
+    }
+
+    .div-form2 {
+        margin: 2px;
+    }
+</style>
+
+
+<body>
+
+    <a href="produtos.html">Cadastro</a>
+
+    <h1>HOME</h1>
+    
+    <p id="nomeCompleto"></p>
+
+    <form class="div-form" onsubmit="handleSubmit(event)">
+        <div class="div-form2">
+            <label for="tenis" class="label-form">
+                Cadastre o tênis
+            </label>
+            <input type="text" id="tenis" />
+        </div>
+
+        <div>
+            <label for="marca">
+                Cadastre marca:
+            </label>
+            <input type="text" id="marca">
+        </div>
+
+        <div>
+            <label for="tamanho">
+                Cadastre o Tamanho:
+            </label>
+            <input type="text" id="tamanho" />
+        </div>
+
+        <div>
+            <label for="preco">
+                Cadastre o Preço:
+            </label>
+            <input type="number" id="preco" />
+        </div>
+
+        <div>
+            <button>Cadastrar</button>
+        </div>
+    </form>
+
+    <div id="resultado-final">
+        <ul id="lista-produto">
+            
+        </ul>
+    </div>
+
+    <script>
+        function main() {
+            const accounts = JSON.parse(localStorage.getItem('accounts'));
+            const nome = document.getElementById('nomeCompleto');
+            nome.innerHTML = `${accounts[0].nomeCompleto} ${accounts[0].tel}`
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            
+            const tenis = document.getElementById('tenis').value;
+            const marca = document.getElementById('marca').value;
+            const tamanho = document.getElementById('tamanho').value;
+            const preco = document.getElementById('preco').value;
+            
+            const listaProduto = document.getElementById('lista-produto')
+            const produto = document.createElement('li');
+            produto.innerHTML = `Tênis: ${tenis} Marca:${marca} Tamanho:${tamanho} Preço:${preco}`
+            
+            listaProduto.appendChild(produto);
+            
+            // USAR LOCAL STORAGE
+
+
+        const Tenis = {
+            tenis,
+            marca,
+            tamanho,
+            preco,
+        }
+
+        localStorage.setItem('Tenis', JSON.stringify(Tenis));
+         
+    }
+
+
+
+
+
+
+        main();
+    </script>
+</body>
+
+</html>

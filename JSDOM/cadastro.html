@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* Faça seu estilo */
+    
+    * {
+        margin: 0;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px; 
+        border: 2px solid black;
+        border-width: 5px;
+        border-radius: 12px;
+        padding: 5px;
+        background-color: aqua;
+    }
+
+    button {
+        border: none;
+        background-color: #333;
+        color: white;
+        padding: 3px;
+        border-radius: 10px;
+        width: 100px;
+        background-color: black;
+        cursor: pointer;
+    }
+
+     
+    
+
+    label {
+        padding: 10px;
+        margin: 0;
+        font-family: sans-serif;
+        color: black;
+    }
+
+    a {
+        padding: 10px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+
+
+<body>
+
+    <a href="./login.html">Login</a>
+
+    <form onsubmit="handleSubmit()">
+        <!-- Faça a tela de cadastro -->
+        <label>
+            Nome Completo:
+            <input type="text" id="nomeCompleto"/>
+        </label>
+
+        <label>
+            Telefone:
+            <input type="tel" id="tel"/>
+        </label>
+
+        <label>
+            Insira Email:
+            <input type="email" id="email"/>
+        </label>
+
+        <label>
+            Insira password:
+            <input type="password" id="password" />
+        </label>
+
+        <button>Registre-se</button>
+
+
+    </form>
+
+
+</body>
+
+
+
+<script>
+    // Faça seu script
+
+    // Se não existir account no banco de dados
+    if (!localStorage.getItem('accounts')) {
+        // Eu crio
+        localStorage.setItem('accounts', JSON.stringify([]));
+    }
+
+    function handleSubmit() {
+        const nomeCompleto = document.getElementById('nomeCompleto').value;
+        const tel = document.getElementById('tel').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const user = {
+            nomeCompleto,
+            tel,
+            email,
+            password,
+        }
+
+        // Recuperar o banco de dados
+        const data = JSON.parse(localStorage.getItem('accounts'));
+
+        // Atualizo
+        data.push(user);
+        
+        // Envio de volta
+        localStorage.setItem('accounts', JSON.stringify(data));
+    }
+
+    
+</script>
+
+
+</html>

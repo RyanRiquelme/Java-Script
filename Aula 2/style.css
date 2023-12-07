@@ -1,0 +1,24 @@
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+    background-color: black;
+}
+
+header {
+    height: 300px;
+    width: 100%;
+    background-color: cyan;
+}
+
+main {
+    background-color: white;
+}
+
+footer {
+    height: 300px;
+    background-color: cyan;
+}
+
+div img{
+    height: 100px;
+}
